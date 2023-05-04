@@ -87,6 +87,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 10px 0 0 0;
 }
 .balance ul li.menu-li .menu ul {
   background: #151515;
