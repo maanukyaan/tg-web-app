@@ -34,13 +34,13 @@
       </div>
       <ul>
         <li>
-          <button>
+          <button id="sendButton">
             <i class="bi bi-arrow-up-circle-fill"></i>
             <span>Отправить</span>
           </button>
         </li>
         <li>
-          <button disabled>
+          <button disabled id="claimButton">
             <i class="bi bi-arrow-down-circle-fill"></i>
             <span>Получить</span>
           </button>
@@ -52,7 +52,7 @@
           </button>
         </li>
         <li>
-          <button disabled>
+          <button disabled id="menuButton">
             <i class="bi bi-list"></i>
             <span>Меню</span>
           </button>
@@ -148,21 +148,26 @@
     </main>
 
     <!-- Telegram Web Apps Library -->
-    <script src="scripts/telegram-web-app.js"></script>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
     <script>
+      const tg = window.Telegram.WebApp;
+
+      tg.expand();
+
       function setThemeClass() {
-        document.documentElement.className = Telegram.WebApp.colorScheme;
+        document.documentElement.className = tg.colorScheme;
       }
-      Telegram.WebApp.onEvent("themeChanged", setThemeClass);
+      tg.onEvent("themeChanged", setThemeClass);
       setThemeClass();
+
+      const sendButton = document.querySelector("#sendButton");
+      sendButton.addEventListener("click", function (e) {
+        tg.showAlert("Этот отдел находится в разработке.");
+      });
 
       const exchangeButton = document.querySelector("#exchangeButton");
       exchangeButton.addEventListener("click", function (e) {
-        const tg = window.Telegram.WebApp;
-
-        tg.expand();
-
         tg.showPopup({
           type: "popup_button",
           text: "Выберите действие",
@@ -180,7 +185,7 @@
               },
             ],
           },
-        }, () => console.log("Popup"));
+        });
       });
     </script>
   </body>
