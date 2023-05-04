@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test Web App</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css"
+    />
+
+    <!-- Reboot styles -->
+    <link rel="stylesheet" href="css/bootstrapReboot.min.css" />
+
+    <!-- Main styles -->
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+
+    <header class="balance">
+      <div class="balance__container">
+        <h1>Баланс</h1>
+        <h2>0,<span>24</span></h2>
+      </div>
+      <ul>
+        <li>
+          <button>
+            <i class="bi bi-arrow-up-circle-fill"></i>
+            <span>Отправить</span>
+          </button>
+        </li>
+        <li>
+          <button disabled>
+            <i class="bi bi-arrow-down-circle-fill"></i>
+            <span>Получить</span>
+          </button>
+        </li>
+        <li>
+          <button class="btn btn-primary" disabled>
+            <i class="bi bi-arrow-down-up"></i>
+            <span>Обменять</span>
+          </button>
+        </li>
+        <li>
+          <button disabled>
+            <i class="bi bi-list"></i>
+            <span>Меню</span>
+          </button>
+        </li>
+      </ul>
+    </header>
+
+    <main class="main">
+      <section class="assets">
+        <h2 class="assets__h2">Активы</h2>
+        <div class="assets__container">
+          <div class="asset">
+            <img src="img/icons/ton.png" alt="Toncoin" />
+            <div class="asset__info">
+              <div>
+                <h3>Toncoin</h3>
+                <p>0 TON</p>
+              </div>
+              <div class="asset__price">0,00 ₽</div>
+            </div>
+          </div>
+
+          <div class="asset">
+            <img src="img/icons/btc.png" alt="BTC" />
+            <div class="asset__info">
+              <div>
+                <h3>Bitcoin</h3>
+                <p>0 BTC</p>
+              </div>
+              <div class="asset__price">0,00 ₽</div>
+            </div>
+          </div>
+
+          <div class="asset">
+            <img src="img/icons/usdt.png" alt="USDT" />
+            <div class="asset__info">
+              <div>
+                <h3>USD Tether</h3>
+                <p>0 USDT</p>
+              </div>
+              <div class="asset__price">0,00 ₽</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="transactions">
+        <h2 class="transactions__h2">История транзакций</h2>
+        <div class="transactions__container">
+            <div class="transaction">
+              <img src="img/icons/avatar.png" alt="Avatar">
+              <div class="transaction__info">
+                <div>
+                  <h3 class="transaction__claimer">Name Surname</h3>
+                  <p class="transaction__time">22 сентября в 02:45</p>
+                </div>
+                <div class="transaction__status__container">
+                  <div class="transaction__price">5,54 TON</div>
+                  <div class="transaction__status">Отправлено</div>
+                  </div>
+              </div>
+            </div>
+
+            <div class="transaction">
+              <img src="img/icons/avatar.png" alt="Avatar">
+              <div class="transaction__info">
+                <div>
+                  <h3 class="transaction__claimer">Name Surname</h3>
+                  <p class="transaction__time">Сегодня в 02:45</p>
+                </div>
+                <div class="transaction__status__container">
+                  <div class="transaction__price">45,542 USDT</div>
+                  <div class="transaction__status">Отправлено</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="transaction">
+              <img src="img/icons/avatar.png" alt="Avatar">
+              <div class="transaction__info">
+                <div>
+                  <h3 class="transaction__claimer">Name Surname</h3>
+                  <p class="transaction__time">22 сентября в 02:45</p>
+                </div>
+                <div class="transaction__status__container">
+                  <div class="transaction__price">5,54 TON</div>
+                  <div class="transaction__status">Отправлено</div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="transaction">
+              <img src="img/icons/avatar.png" alt="Avatar">
+              <div class="transaction__info">
+                <div>
+                  <h3 class="transaction__claimer">Name Surname</h3>
+                  <p class="transaction__time">Сегодня в 02:45</p>
+                </div>
+                <div class="transaction__status__container">
+                  <div class="transaction__price">45,542 USDT</div>
+                  <div class="transaction__status">Отправлено</div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Telegram Web Apps Library -->
+    <script src="scripts/telegram-web-app.js"></script>
+
+    <script>
+      function setThemeClass() {
+        document.documentElement.className = Telegram.WebApp.colorScheme;
+      }
+      Telegram.WebApp.onEvent("themeChanged", setThemeClass);
+      setThemeClass();
+    </script>
+  </body>
+</html>

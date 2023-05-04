@@ -1,0 +1,214 @@
+@charset "UTF-8";
+html, body {
+  min-height: 100vh;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  --bg-color: var(--tg-theme-bg-color, #fff);
+  font-family: sans-serif;
+  background-color: var(--bg-color);
+  color: var(--tg-theme-text-color, #222);
+  font-size: 14px;
+  color-scheme: var(--tg-color-scheme);
+}
+
+.balance {
+  height: 300px;
+  width: 100%;
+  background-color: var(--tg-theme-bg-color, #fff);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 2px 14px 2px rgba(0, 0, 0, 0.15);
+}
+.balance__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1 1 auto;
+}
+.balance ul {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 !important;
+  padding: 0px 15px 20px;
+  width: 100%;
+}
+.balance ul li {
+  width: 23%;
+}
+.balance ul li button {
+  width: 100%;
+  font-size: 12px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--tg-theme-button-color, #40a7e3);
+  color: var(--tg-theme-button-text-color, #ffffff);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.balance ul li button:disabled {
+  opacity: 0.65;
+  color: var(--tg-theme-link-color, #40a7e3);
+  background-color: var(--tg-theme-secondary-bg-color, #ecf6fc);
+}
+.balance ul li i {
+  font-size: 24px;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.balance ul li span {
+  font-size: 13px;
+  cursor: default;
+}
+.balance h1 {
+  font-size: 15px;
+}
+.balance h2 {
+  font-size: 40px;
+  font-weight: bold;
+}
+.balance h2 span {
+  font-size: 30px;
+  font-weight: bold;
+}
+.balance h2::after {
+  content: "₽";
+  font-family: sans-serif;
+  color: #aaaaaa;
+  position: relative;
+  left: 5px;
+  font-size: 30px;
+}
+
+main.main {
+  margin: 15px 0 0 0;
+  background-color: var(--tg-theme-bg-color, #fff);
+}
+main.main .assets {
+  margin: 0;
+  padding: 15px;
+  padding-right: 0 !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+main.main .assets h2 {
+  font-size: 16px;
+  color: var(--tg-theme-button-color, #40a7e3);
+}
+main.main .assets .assets__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+main.main .assets .assets__container .asset {
+  display: flex;
+  align-items: center;
+  margin: 0 0 15px 0;
+}
+main.main .assets .assets__container .asset img {
+  height: 50px;
+  width: auto;
+  margin: 0 15px 0 0;
+}
+main.main .assets .assets__container .asset__info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px 10px 0;
+  width: 100%;
+  border-bottom: 1px solid var(--tg-theme-secondary-bg-color);
+}
+main.main .assets .assets__container .asset__info h3 {
+  font-size: 18px;
+  margin: 0;
+}
+main.main .assets .assets__container .asset__info p {
+  font-size: 17px;
+  color: #9e9e9e;
+  margin: 0;
+}
+main.main .assets .assets__container .asset__info .asset__price {
+  font-size: 17px;
+}
+main.main .assets .assets__container .asset:last-child {
+  margin-bottom: 0;
+}
+main.main .assets .assets__container .asset:last-child .asset__info {
+  border-bottom: none;
+}
+main.main .transactions {
+  margin: 0;
+  padding: 15px;
+  padding-right: 0 !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+main.main .transactions h2 {
+  font-size: 16px;
+  color: var(--tg-theme-button-color, #40a7e3);
+}
+main.main .transactions .transactions__container {
+  padding: 10px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+main.main .transactions .transactions__container .transaction {
+  display: flex;
+  align-items: center;
+  margin: 0 0 15px 0;
+}
+main.main .transactions .transactions__container .transaction img {
+  height: 50px;
+  width: auto;
+  margin: 0 15px 0 0;
+  border-radius: 50%;
+}
+main.main .transactions .transactions__container .transaction__info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px 10px 0;
+  width: 100%;
+  border-bottom: 1px solid var(--tg-theme-secondary-bg-color);
+}
+main.main .transactions .transactions__container .transaction__info h3 {
+  font-size: 18px;
+  margin: 0;
+}
+main.main .transactions .transactions__container .transaction__info p {
+  font-size: 17px;
+  color: #9e9e9e;
+  margin: 0;
+}
+main.main .transactions .transactions__container .transaction__status__container {
+  text-align: right;
+}
+main.main .transactions .transactions__container .transaction__status__container .transaction__price {
+  font-size: 18px;
+}
+main.main .transactions .transactions__container .transaction__status__container .transaction__status {
+  font-size: 17px;
+  color: #9e9e9e;
+}
+main.main .transactions .transactions__container .transaction:last-child {
+  margin-bottom: 0;
+}
+main.main .transactions .transactions__container .transaction:last-child .transaction__info {
+  border-bottom: none;
+}/*# sourceMappingURL=main.css.map */
