@@ -73,6 +73,54 @@ body {
   font-size: 13px;
   cursor: default;
 }
+.balance ul li.menu-li {
+  position: relative;
+}
+.balance ul li.menu-li .menu {
+  position: absolute;
+  width: 200px;
+  height: 100px;
+  right: 0px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.balance ul li.menu-li .menu ul {
+  background: #151515;
+  border-radius: 10px;
+  color: #fff;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+.balance ul li.menu-li .menu ul li {
+  width: 100%;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #989898;
+}
+.balance ul li.menu-li .menu ul li span {
+  font-size: 14px;
+}
+.balance ul li.menu-li .menu ul li i {
+  font-size: 16px;
+}
+.balance ul li.menu-li .menu ul li:last-child {
+  border-bottom: none;
+}
+.balance ul li.menu-li .menu.active {
+  opacity: 100%;
+  pointer-events: all;
+}
 .balance h1 {
   font-size: 15px;
 }

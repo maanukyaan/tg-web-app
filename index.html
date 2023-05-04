@@ -3,7 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="MobileOptimized" content="176" />
+    <meta name="HandheldFriendly" content="True" />
     <title>Test Web App</title>
 
     <!-- Google Fonts -->
@@ -34,13 +41,13 @@
       </div>
       <ul>
         <li>
-          <button id="sendButton">
+          <button class="btn btn-primary" id="sendButton">
             <i class="bi bi-arrow-up-circle-fill"></i>
             <span>Отправить</span>
           </button>
         </li>
         <li>
-          <button disabled id="claimButton">
+          <button class="btn btn-primary" disabled id="claimButton">
             <i class="bi bi-arrow-down-circle-fill"></i>
             <span>Получить</span>
           </button>
@@ -51,11 +58,23 @@
             <span>Обменять</span>
           </button>
         </li>
-        <li>
-          <button disabled id="menuButton">
+        <li class="menu-li">
+          <button class="btn btn-primary" id="menuButton">
             <i class="bi bi-list"></i>
             <span>Меню</span>
           </button>
+          <div class="menu">
+            <ul>
+              <li>
+                <span>Купить по карте</span>
+                <i class="bi bi-credit-card"></i>
+              </li>
+              <li>
+                <span>P2P Маркет</span>
+                <i class="bi bi-arrow-left-right"></i>
+              </li>
+            </ul>
+          </div>
         </li>
       </ul>
     </header>
@@ -186,6 +205,19 @@
             }
           }
         );
+      });
+    </script>
+
+    <script>
+      const menuButton = document.querySelector("#menuButton");
+      menuButton.addEventListener("click", function (e) {
+        console.log("Click");
+        const menu = document.querySelector(".menu").classList;
+        if (menu.contains("active")) {
+          menu.remove("active");
+        } else {
+          menu.add("active");
+        }
       });
     </script>
   </body>
