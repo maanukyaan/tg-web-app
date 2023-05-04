@@ -27,7 +27,6 @@
     <link rel="stylesheet" href="css/main.css" />
   </head>
   <body>
-
     <header class="balance">
       <div class="balance__container">
         <h1>Баланс</h1>
@@ -47,7 +46,7 @@
           </button>
         </li>
         <li>
-          <button class="btn btn-primary" disabled>
+          <button class="btn btn-primary" id="exchangeButton">
             <i class="bi bi-arrow-down-up"></i>
             <span>Обменять</span>
           </button>
@@ -103,61 +102,47 @@
       <section class="transactions">
         <h2 class="transactions__h2">История транзакций</h2>
         <div class="transactions__container">
-            <div class="transaction">
-              <img src="img/icons/avatar.png" alt="Avatar">
-              <div class="transaction__info">
-                <div>
-                  <h3 class="transaction__claimer">Name Surname</h3>
-                  <p class="transaction__time">22 сентября в 02:45</p>
-                </div>
-                <div class="transaction__status__container">
-                  <div class="transaction__price">5,54 TON</div>
-                  <div class="transaction__status">Отправлено</div>
-                  </div>
+          <div class="transaction">
+            <img src="img/icons/avatar.png" alt="Avatar" />
+            <div class="transaction__info">
+              <div class="transaction__left">
+                <div class="transaction__claimer">Name Surname</div>
+                <div class="transaction__time">22 сентября в 02:45</div>
+              </div>
+              <div class="transaction__status__container">
+                <div class="transaction__price">5,54 TON</div>
+                <div class="transaction__status">Отправлено</div>
               </div>
             </div>
+          </div>
 
-            <div class="transaction">
-              <img src="img/icons/avatar.png" alt="Avatar">
-              <div class="transaction__info">
-                <div>
-                  <h3 class="transaction__claimer">Name Surname</h3>
-                  <p class="transaction__time">Сегодня в 02:45</p>
-                </div>
-                <div class="transaction__status__container">
-                  <div class="transaction__price">45,542 USDT</div>
-                  <div class="transaction__status">Отправлено</div>
-                </div>
+          <div class="transaction">
+            <img src="img/icons/avatar.png" alt="Avatar" />
+            <div class="transaction__info">
+              <div class="transaction__left">
+                <div class="transaction__claimer">John White</div>
+                <div class="transaction__time">01 июня в 04:24</div>
+              </div>
+              <div class="transaction__status__container">
+                <div class="transaction__price">0.425661 BTC</div>
+                <div class="transaction__status">Отправлено</div>
               </div>
             </div>
+          </div>
 
-            <div class="transaction">
-              <img src="img/icons/avatar.png" alt="Avatar">
-              <div class="transaction__info">
-                <div>
-                  <h3 class="transaction__claimer">Name Surname</h3>
-                  <p class="transaction__time">22 сентября в 02:45</p>
-                </div>
-                <div class="transaction__status__container">
-                  <div class="transaction__price">5,54 TON</div>
-                  <div class="transaction__status">Отправлено</div>
-                </div>
+          <div class="transaction">
+            <img src="img/icons/avatar.png" alt="Avatar" />
+            <div class="transaction__info">
+              <div class="transaction__left">
+                <div class="transaction__claimer">Name Surname</div>
+                <div class="transaction__time">22 сентября в 02:45</div>
+              </div>
+              <div class="transaction__status__container">
+                <div class="transaction__price">5,54 TON</div>
+                <div class="transaction__status">Отправлено</div>
               </div>
             </div>
-            
-            <div class="transaction">
-              <img src="img/icons/avatar.png" alt="Avatar">
-              <div class="transaction__info">
-                <div>
-                  <h3 class="transaction__claimer">Name Surname</h3>
-                  <p class="transaction__time">Сегодня в 02:45</p>
-                </div>
-                <div class="transaction__status__container">
-                  <div class="transaction__price">45,542 USDT</div>
-                  <div class="transaction__status">Отправлено</div>
-                </div>
-              </div>
-            </div>
+          </div>
         </div>
       </section>
     </main>
@@ -171,6 +156,31 @@
       }
       Telegram.WebApp.onEvent("themeChanged", setThemeClass);
       setThemeClass();
+
+      const exchangeButton = document.querySelector("#exchangeButton");
+      exchangeButton.addEventListener("click", function (e) {
+        const tg = window.Telegram.WebApp;
+
+        tg.expand();
+
+        tg.showPopup({
+          type: "popup_button",
+          text: "Выберите действие",
+          popup: {
+            text: "Дополнительные опции",
+            buttons: [
+              {
+                text: "Открыть ссылку",
+                url: "https://example.com",
+              },
+              {
+                text: "Скачать файл",
+                callback_data: "download_file",
+              },
+            ],
+          },
+        });
+      });
     </script>
   </body>
 </html>

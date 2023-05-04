@@ -182,11 +182,16 @@ main.main
                     width: 100%
                     border-bottom: 1px solid var(--tg-theme-secondary-bg-color)
 
-                    h3
+                    & > div
+                        display: flex
+                        justify-content: center
+                        flex-direction: column
+
+                    .transaction__claimer
                         font-size: 18px
                         margin: 0
 
-                    p
+                    .transaction__time
                         font-size: 17px
                         color: #9e9e9e
                         margin: 0

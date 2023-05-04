@@ -187,11 +187,16 @@ main.main .transactions .transactions__container .transaction__info {
   width: 100%;
   border-bottom: 1px solid var(--tg-theme-secondary-bg-color);
 }
-main.main .transactions .transactions__container .transaction__info h3 {
+main.main .transactions .transactions__container .transaction__info > div {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+main.main .transactions .transactions__container .transaction__info .transaction__claimer {
   font-size: 18px;
   margin: 0;
 }
-main.main .transactions .transactions__container .transaction__info p {
+main.main .transactions .transactions__container .transaction__info .transaction__time {
   font-size: 17px;
   color: #9e9e9e;
   margin: 0;
