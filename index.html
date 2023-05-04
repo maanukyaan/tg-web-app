@@ -168,24 +168,24 @@
 
       const exchangeButton = document.querySelector("#exchangeButton");
       exchangeButton.addEventListener("click", function (e) {
-        tg.showPopup({
-          type: "popup_button",
-          text: "Выберите действие",
-          popup: {
-            title: "Дополнительные опции",
-            message: "Дополнительные опции",
+        tg.showPopup(
+          {
+            title: "Popup title",
+            message: "Popup message",
             buttons: [
-              {
-                text: "Открыть ссылку",
-                url: "https://example.com",
-              },
-              {
-                text: "Скачать файл",
-                callback_data: "download_file",
-              },
+              { id: "delete", type: "destructive", text: "Delete all" },
+              { id: "faq", type: "default", text: "Open FAQ" },
+              { type: "cancel" },
             ],
           },
-        });
+          function (buttonId) {
+            if (buttonId === "delete") {
+              DemoApp.showAlert("'Delete all' selected");
+            } else if (buttonId === "faq") {
+              Telegram.WebApp.openLink("https://telegram.org/faq");
+            }
+          }
+        );
       });
     </script>
   </body>
